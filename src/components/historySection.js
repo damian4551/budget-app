@@ -1,15 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import HistoryBox from "./historyBox";
 
 import { motion } from "framer-motion";
 
-//context
-import { ExpenseContext, IncomeContext } from "../context";
-
-const HistorySection = ({ currency }) => {
-  const [incomeItems] = useContext(IncomeContext);
-  const [expenseItems] = useContext(ExpenseContext);
-
+const HistorySection = ({ currency, incomeItems, expenseItems }) => {
   return (
     <>
       <motion.div

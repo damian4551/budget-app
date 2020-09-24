@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import HistorySection from "./historySection";
 
 //context
-import { ExpenseContext, IncomeContext, ItemsContext } from "../context";
+import { ItemsContext } from "../context";
 
 import { motion } from "framer-motion";
 
@@ -17,8 +17,8 @@ const Main = ({
 }) => {
   //imported states
   const [items, setItems] = useContext(ItemsContext);
-  const [incomeItems, setIncomeItems] = useContext(IncomeContext);
-  const [expenseItems, setExpenseItems] = useContext(ExpenseContext);
+  const [incomeItems, setIncomeItems] = useState([]);
+  const [expenseItems, setExpenseItems] = useState([]);
 
   //states
   const [amount, setAmount] = useState("");
@@ -28,12 +28,6 @@ const Main = ({
   const [counter, setCounter] = useState(
     parseInt(localStorage.getItem("counter")) || 0
   );
-
-  const filterIncome = () =>
-    setIncomeItems(items.filter((item) => item.incomeExpense === "income"));
-
-  const filterExpense = () =>
-    setExpenseItems(items.filter((item) => item.incomeExpense === "expense"));
 
   const addItem = (e) => {
     e.preventDefault();
@@ -85,10 +79,19 @@ const Main = ({
     localStorage.setItem("balance", JSON.stringify(balance));
     localStorage.setItem("startBalance", JSON.stringify(startBalance));
     localStorage.setItem("counter", counter);
-    filterExpense();
-    filterIncome();
+    setIncomeItems(items.filter((item) => item.incomeExpense === "income"));
+    setExpenseItems(items.filter((item) => item.incomeExpense === "expense"));
     countProfit();
-  }, [setCounter, counter, balance, items, startBalance, countProfit]);
+  }, [
+    setCounter,
+    counter,
+    balance,
+    items,
+    startBalance,
+    countProfit,
+    setExpenseItems,
+    setIncomeItems,
+  ]);
 
   return (
     <div className="main">
@@ -173,7 +176,11 @@ const Main = ({
           </div>
         </div>
       </motion.div>
-      <HistorySection currency={currency} />
+      <HistorySection
+        currency={currency}
+        incomeItems={incomeItems}
+        expenseItems={expenseItems}
+      />
     </div>
   );
 };

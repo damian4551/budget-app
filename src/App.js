@@ -9,7 +9,7 @@ import Dashboard from "./pages/dashboard";
 import Settings from "./pages/settings";
 
 //context
-import { ItemsProvider, IncomeProvider, ExpenseProvider } from "./context";
+import { ItemsProvider } from "./context";
 
 function App() {
   const [balance, setBalance] = useState(
@@ -26,34 +26,30 @@ function App() {
 
   return (
     <ItemsProvider>
-      <ExpenseProvider>
-        <IncomeProvider>
-          <AnimatePresence exitBeforeEnter>
-            <Switch location={location} key={location.key}>
-              <Route path="/" exact>
-                <Dashboard
-                  balance={balance}
-                  setBalance={setBalance}
-                  startBalance={startBalance}
-                  setStartBalance={setStartBalance}
-                  currency={currency}
-                  setCurrency={setCurrency}
-                />
-              </Route>
-              <Route path="/settings" exact>
-                <Settings
-                  balance={balance}
-                  setBalance={setBalance}
-                  startBalance={startBalance}
-                  setStartBalance={setStartBalance}
-                  currency={currency}
-                  setCurrency={setCurrency}
-                />
-              </Route>
-            </Switch>
-          </AnimatePresence>
-        </IncomeProvider>
-      </ExpenseProvider>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route path="/" exact>
+            <Dashboard
+              balance={balance}
+              setBalance={setBalance}
+              startBalance={startBalance}
+              setStartBalance={setStartBalance}
+              currency={currency}
+              setCurrency={setCurrency}
+            />
+          </Route>
+          <Route path="/settings" exact>
+            <Settings
+              balance={balance}
+              setBalance={setBalance}
+              startBalance={startBalance}
+              setStartBalance={setStartBalance}
+              currency={currency}
+              setCurrency={setCurrency}
+            />
+          </Route>
+        </Switch>
+      </AnimatePresence>
     </ItemsProvider>
   );
 }
