@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import MenuBox from "./menuBox";
 
@@ -37,17 +38,18 @@ const SettingsContainer = ({
   const changeBalance = () => {
     if (selectValue !== "") {
       setCurrency(selectValue);
+      convertItems();
+      setBalance(
+        Math.round(
+          (parseFloat(balance * exchangeRate) + Number.EPSILON) * 100
+        ) / 100
+      );
+      setStartBalance(
+        Math.round(
+          (parseFloat(startBalance * exchangeRate) + Number.EPSILON) * 100
+        ) / 100
+      );
     }
-    setBalance(
-      Math.round((parseFloat(balance * exchangeRate) + Number.EPSILON) * 100) /
-        100
-    );
-    convertItems();
-    setStartBalance(
-      Math.round(
-        (parseFloat(startBalance * exchangeRate) + Number.EPSILON) * 100
-      ) / 100
-    );
     if (inputValue !== "") {
       setBalance(
         Math.round((parseFloat(inputValue) + Number.EPSILON) * 100) / 100
@@ -55,8 +57,6 @@ const SettingsContainer = ({
       setStartBalance(
         Math.round((parseFloat(inputValue) + Number.EPSILON) * 100) / 100
       );
-    } else {
-      return;
     }
   };
 
@@ -122,7 +122,9 @@ const SettingsContainer = ({
           </div>
         </div>
         <div className="btn-block">
-          <button onClick={changeBalance}>save</button>
+          <Link to="/">
+            <button onClick={changeBalance}>save</button>
+          </Link>
         </div>
       </motion.div>
       <MenuBox balance={balance} setBalance={setBalance} display="none" />
