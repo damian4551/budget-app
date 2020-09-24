@@ -1,0 +1,42 @@
+.menu-container {
+  height: 8vh;
+  position: fixed;
+  width: 80vw;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  .menu-box {
+    width: 40%;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0 30px;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+    svg {
+      width: 25px;
+      height: 30px;
+      margin: 0 20px;
+      cursor: pointer;
+      fill: $blue;
+      transition: fill 0.6s ease-in-out;
+    }
+    .unselect {
+      height: 25px;
+      width: 25px;
+      margin: 0 20px;
+      border-radius: 50%;
+      border: 3px solid $blue;
+      background-color: transparent;
+      cursor: pointer;
+      transition: border-color 0.6s ease-in-out;
+    }
+  }
+}

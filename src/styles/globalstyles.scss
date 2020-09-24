@@ -1,0 +1,23 @@
+@import "./variables.scss";
+@import "./sidebar.scss";
+@import "./main.scss";
+@import "./history.scss";
+@import "./menuBox.scss";
+@import "./modal.scss";
+@import "./settingsContainer.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100vw;
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  position: relative;
+}

@@ -1,25 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./styles/globalstyles.scss";
+import { Route, Switch, useLocation } from "react-router-dom";
+
+import { AnimatePresence } from "framer-motion";
+
+//pages
+import Dashboard from "./pages/dashboard";
+import Settings from "./pages/settings";
+
+//context
+import { ItemsProvider, IncomeProvider, ExpenseProvider } from "./context";
 
 function App() {
+  const [balance, setBalance] = useState(
+    JSON.parse(localStorage.getItem("balance")) || null
+  );
+  const [startBalance, setStartBalance] = useState(
+    JSON.parse(localStorage.getItem("startBalance")) || null
+  );
+
+  const [currency, setCurrency] = useState(
+    JSON.parse(localStorage.getItem("currency")) || null
+  );
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ItemsProvider>
+      <ExpenseProvider>
+        <IncomeProvider>
+          <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.key}>
+              <Route path="/" exact>
+                <Dashboard
+                  balance={balance}
+                  setBalance={setBalance}
+                  startBalance={startBalance}
+                  setStartBalance={setStartBalance}
+                  currency={currency}
+                  setCurrency={setCurrency}
+                />
+              </Route>
+              <Route path="/settings" exact>
+                <Settings
+                  balance={balance}
+                  setBalance={setBalance}
+                  startBalance={startBalance}
+                  setStartBalance={setStartBalance}
+                  currency={currency}
+                  setCurrency={setCurrency}
+                />
+              </Route>
+            </Switch>
+          </AnimatePresence>
+        </IncomeProvider>
+      </ExpenseProvider>
+    </ItemsProvider>
   );
 }
 

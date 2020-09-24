@@ -1,0 +1,95 @@
+.sidebar {
+  height: 100vh;
+  width: 20vw;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  .sidebar-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: $poppins;
+    color: $black;
+    flex: 2;
+    .logo {
+      font-size: calc(0.75rem + 0.75vw);
+      font-weight: 700;
+      margin: 40px 0;
+      padding-left: 50px;
+      @media (max-width: 900px) {
+        padding-left: 20px;
+      }
+    }
+    .navigation {
+      margin: 40px 0;
+      flex: 3;
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        a {
+          text-decoration: none;
+          color: $black;
+          .navigation-item,
+          .navigation-item-active {
+            font-size: calc(0.75rem + 0.5vw);
+            font-weight: 600;
+            padding: 5px 0;
+            padding-left: 50px;
+            border-left: 5px solid transparent;
+            @media (max-width: 900px) {
+              padding-left: 20px;
+            }
+            &-active {
+              border-left-color: $black;
+            }
+          }
+        }
+      }
+    }
+    .colors {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      padding: 20px;
+      .color {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+        &.blue {
+          background-color: $blue;
+        }
+        &.green {
+          background-color: $green;
+        }
+        &.brown {
+          background-color: $brown;
+        }
+        &.red {
+          background-color: $light-red;
+        }
+        &.violet {
+          background-color: $violet;
+        }
+        &.navy {
+          background-color: $navy;
+        }
+      }
+    }
+  }
+}
