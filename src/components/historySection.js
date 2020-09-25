@@ -7,16 +7,23 @@ const HistorySection = ({ currency, incomeItems, expenseItems }) => {
   const [displayIncome, setDisplayIncome] = useState(true);
   const [displayExpense, setDisplayExpense] = useState(true);
 
-  const width = window.innerWidth;
-
   const changeDisplay = () => {
-    setDisplayIncome(!displayIncome);
-    setDisplayExpense(!displayExpense);
+    setTimeout(() => {
+      setDisplayIncome(!displayIncome);
+    }, 100);
+    setTimeout(() => {
+      setDisplayExpense(!displayExpense);
+    }, 100);
   };
 
   useEffect(() => {
-    width > 500 ? setDisplayExpense(true) : setDisplayExpense(false);
-  }, [width]);
+    window.innerWidth > 500
+      ? setDisplayExpense(true)
+      : setDisplayExpense(false);
+  }, []);
+
+  console.log(displayIncome);
+  console.log(displayExpense);
 
   return (
     <>
