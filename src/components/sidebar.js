@@ -101,6 +101,17 @@ const Sidebar = ({ activeDashboard, activeSettings, display }) => {
                 settings
               </li>
             </Link>
+            <Link to="/settings">
+              <li
+                className={
+                  activeSettings === "true"
+                    ? "navigation-item-active"
+                    : "navigation-item"
+                }
+              >
+                overwiew
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="colors">

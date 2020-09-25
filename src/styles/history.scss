@@ -5,8 +5,14 @@
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   display: flex;
+  @media (max-width: 650px) {
+    min-height: 40vh;
+  }
   .history-box {
     width: 50%;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
     .inner-history-box {
       font-family: $poppins;
       color: $black;
@@ -17,6 +23,14 @@
       .box-title {
         text-align: center;
         margin-bottom: 30px;
+      }
+      .box-show {
+        display: none;
+        justify-content: center;
+        margin-bottom: 30px;
+        @media (max-width: 500px) {
+          display: flex;
+        }
       }
       .box-flex {
         display: flex;

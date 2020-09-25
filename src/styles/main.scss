@@ -5,8 +5,14 @@
   position: absolute;
   right: 0;
   z-index: 10;
+  @media (max-width: 650px) {
+    width: 100vw;
+  }
   .inner-main {
     height: 50vh;
+    @media (max-width: 650px) {
+      margin-top: 10vh;
+    }
     .outside-text {
       font-family: $poppins;
       font-size: 1rem;
@@ -17,6 +23,13 @@
       padding: 40px 50px;
       padding-bottom: 0px;
       height: 10vh;
+      @media (max-width: 650px) {
+        height: 5vh;
+        padding: 20px;
+      }
+      @media (max-width: 450px) {
+        font-size: 0.75rem;
+      }
       .clear-button {
         cursor: pointer;
         transition: transform 0.3s ease-in-out;
@@ -30,6 +43,9 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      @media (max-width: 500px) {
+        height: 45vh;
+      }
       .balance-block {
         display: flex;
         justify-content: center;
@@ -44,6 +60,9 @@
         .balance-value {
           font-size: calc(1rem + 3vw);
           font-weight: 800;
+          @media (max-width: 450px) {
+            font-size: calc(2rem + 3vw);
+          }
         }
         .status {
           font-size: calc(1rem + 0.5vw);
@@ -80,7 +99,10 @@
                 outline: none;
                 cursor: pointer;
                 background-color: transparent;
-                width: 150px;
+                width: 160px;
+                @media (max-width: 450px) {
+                  width: 130px;
+                }
                 &::placeholder {
                   color: #fff;
                 }
@@ -108,7 +130,10 @@
                 outline: none;
                 background-color: transparent;
                 cursor: pointer;
-                width: 150px;
+                width: 160px;
+                @media (max-width: 450px) {
+                  width: 130px;
+                }
               }
             }
           }
@@ -124,7 +149,7 @@
             font-size: 1rem;
             font-weight: 600;
             padding: 10px;
-            margin-top: 30px;
+            margin: 20px 0;
             color: #fff;
             outline: none;
             text-align: center;
@@ -135,7 +160,7 @@
               transform: scale(1.1);
             }
             @media (max-width: 900px) {
-              margin-top: 20px;
+              margin: 10px 0;
             }
           }
         }

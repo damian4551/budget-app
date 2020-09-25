@@ -4,7 +4,16 @@ import HistoryItem from "./historyItem";
 //context
 import { ItemsContext } from "../context";
 
-const HistoryBox = ({ name, color, sign, items, currency }) => {
+const HistoryBox = ({
+  name,
+  color,
+  sign,
+  items,
+  currency,
+  display,
+  changeDisplay,
+  text,
+}) => {
   const [itemsToSelect, setItemsToSelect] = useContext(ItemsContext);
 
   const selectItem = (id) => {
@@ -21,9 +30,15 @@ const HistoryBox = ({ name, color, sign, items, currency }) => {
   };
 
   return (
-    <div className="history-box">
+    <div
+      className="history-box"
+      style={{ display: display === false ? "none" : "block" }}
+    >
       <div className="inner-history-box" style={{ color: color }}>
         <h2 className="box-title">{name}</h2>
+        <div className="box-show">
+          <p onClick={changeDisplay}>show {text}</p>
+        </div>
         <div className="box-flex">
           {items.map((item) => (
             <HistoryItem

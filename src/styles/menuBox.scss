@@ -7,6 +7,9 @@
   bottom: 0;
   display: flex;
   justify-content: center;
+  @media (max-width: 650px) {
+    width: 100vw;
+  }
   .menu-box {
     width: 40%;
     background-color: #fff;

@@ -20,4 +20,7 @@
 .flex {
   display: flex;
   position: relative;
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 }

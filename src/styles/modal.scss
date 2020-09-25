@@ -9,6 +9,9 @@
   z-index: 15;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+  @media (max-width: 650px) {
+    width: 100vw;
+  }
   .inner-modal {
     height: 100%;
     width: 100%;
