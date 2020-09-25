@@ -8,10 +8,16 @@
   @media (max-width: 650px) {
     min-height: 40vh;
   }
+  @media (max-width: 650px) {
+    position: relative;
+  }
   .history-box {
     width: 50%;
     @media (max-width: 500px) {
       width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     .inner-history-box {
       font-family: $poppins;

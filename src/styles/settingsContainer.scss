@@ -35,10 +35,12 @@
       font-size: calc(1rem + 1vw);
       font-weight: 500;
       @media (max-width: 450px) {
-        font-size: calc(0.75rem + 1vw);
+        font-size: calc(0.5rem + 1vw);
+        margin-top: 30px;
       }
       .option {
         display: flex;
+        align-items: center;
         margin-bottom: 30px;
         p {
           margin-right: 30px;
