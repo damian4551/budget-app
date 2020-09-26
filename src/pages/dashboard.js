@@ -36,7 +36,11 @@ const Dashboard = ({
   return (
     <div className="app">
       <div className="flex">
-        <Sidebar activeDashboard="true" activeSettings="false" />
+        <Sidebar
+          activeDashboard="true"
+          activeSettings="false"
+          activeOverview="false"
+        />
         <Main
           balance={balance}
           updateBalance={updateBalance}

@@ -15,7 +15,11 @@ const Settings = ({
   return (
     <div className="app">
       <div className="flex">
-        <Sidebar activeDashboard="false" activeSettings="true" />
+        <Sidebar
+          activeDashboard="false"
+          activeSettings="true"
+          activeOverview="false"
+        />
         <SettingsContainer
           balance={balance}
           startBalance={startBalance}

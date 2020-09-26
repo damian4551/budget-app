@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = ({ activeDashboard, activeSettings, display }) => {
+const Sidebar = ({
+  activeDashboard,
+  activeSettings,
+  activeOverview,
+  display,
+}) => {
   //color changing functions, bad code ;/
   const changeToBlue = () => {
     const container = document.querySelector(".main");
@@ -101,10 +106,10 @@ const Sidebar = ({ activeDashboard, activeSettings, display }) => {
                 settings
               </li>
             </Link>
-            <Link to="/settings">
+            <Link to="/overview">
               <li
                 className={
-                  activeSettings === "true"
+                  activeOverview === "true"
                     ? "navigation-item-active"
                     : "navigation-item"
                 }

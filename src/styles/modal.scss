@@ -17,7 +17,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    color: $blue;
     padding-top: 100px;
     form {
       display: flex;
@@ -25,29 +24,29 @@
       font-family: $poppins;
       input {
         border: none;
-        border-bottom: 3px solid $blue;
+        border-bottom: 2px solid $black;
         background-color: #fff;
-        font-size: calc(1rem + 1vw);
+        font-size: calc(1rem + 0.75vw);
         padding: 10px;
         font-weight: 600;
         margin-bottom: 50px;
         outline: none;
-        color: $blue;
+        color: $black;
         &::placeholder {
-          color: $blue;
+          color: $black;
         }
       }
       select {
         border: none;
-        border-bottom: 3px solid $blue;
+        border-bottom: 2px solid $black;
         background-color: #fff;
-        font-size: calc(1rem + 1vw);
+        font-size: calc(1rem + 0.75vw);
         padding: 10px;
         font-weight: 600;
         margin-bottom: 50px;
         outline: none;
         text-align: center;
-        color: $blue;
+        color: $black;
       }
 
       button {
@@ -57,7 +56,7 @@
         font-weight: 600;
         cursor: pointer;
         outline: none;
-        color: $blue;
+        color: $black;
         transition: transform 0.3s ease-in-out;
         &:hover {
           transform: scale(1.1);

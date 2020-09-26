@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 //pages
 import Dashboard from "./pages/dashboard";
 import Settings from "./pages/settings";
+import Overview from "./pages/overview";
 
 //context
 import { ItemsProvider } from "./context";
@@ -52,6 +53,9 @@ function App() {
               currency={currency}
               setCurrency={setCurrency}
             />
+          </Route>
+          <Route path="/overview" exact>
+            <Overview />
           </Route>
         </Switch>
       </AnimatePresence>
