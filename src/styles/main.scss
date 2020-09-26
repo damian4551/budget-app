@@ -1,6 +1,7 @@
 .main {
   width: 80vw;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background-color: $blue;
   position: absolute;
   right: 0;
@@ -9,7 +10,7 @@
     width: 100vw;
   }
   .inner-main {
-    height: 50vh;
+    height: 50%;
     @media (max-width: 650px) {
       margin-top: 10vh;
     }
@@ -22,12 +23,10 @@
       justify-content: space-between;
       padding: 40px 50px;
       padding-bottom: 0px;
-      height: 10vh;
+      height: 20%;
       @media (max-width: 650px) {
-        height: 5vh;
+        height: 10%;
         padding: 20px;
-      }
-      @media (max-width: 450px) {
         font-size: 0.75rem;
       }
       .clear-button {
@@ -39,12 +38,12 @@
       }
     }
     .container {
-      height: 40vh;
+      height: 80%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       @media (max-width: 500px) {
-        height: 45vh;
+        height: 90%;
       }
       .balance-block {
         display: flex;
@@ -53,20 +52,27 @@
         align-items: center;
         font-family: $poppins;
         color: #fff;
+        padding-top: 10px;
         .balance-text {
-          font-size: calc(1rem + 1.5vw);
+          font-size: calc(1rem + 0.5vw);
           font-weight: 500;
+          @media (max-width: 650px) {
+            font-size: calc(1rem + 1vw);
+          }
         }
         .balance-value {
           font-size: calc(1rem + 3vw);
           font-weight: 800;
           @media (max-width: 450px) {
-            font-size: calc(2rem + 3vw);
+            font-size: calc(1rem + 4vw);
           }
         }
         .status {
           font-size: calc(1rem + 0.5vw);
           font-weight: 500;
+          @media (max-width: 650px) {
+            font-size: calc(0.5rem + 1vw);
+          }
         }
       }
       .input-section {
@@ -82,6 +88,9 @@
             align-items: center;
             @media (max-width: 900px) {
               flex-direction: column;
+            }
+            @media (max-width: 650px) {
+              padding-top: 20px;
             }
             .row {
               display: flex;
@@ -100,9 +109,6 @@
                 cursor: pointer;
                 background-color: transparent;
                 width: 160px;
-                @media (max-width: 450px) {
-                  width: 130px;
-                }
                 &::placeholder {
                   color: #fff;
                 }
@@ -116,6 +122,12 @@
                 }
                 @media (max-width: 900px) {
                   margin-bottom: 20px;
+                }
+                @media (max-width: 650px) {
+                  font-size: 0.75rem;
+                }
+                @media (max-width: 450px) {
+                  width: 130px;
                 }
               }
               select {
@@ -131,6 +143,9 @@
                 background-color: transparent;
                 cursor: pointer;
                 width: 160px;
+                @media (max-width: 650px) {
+                  font-size: 0.75rem;
+                }
                 @media (max-width: 450px) {
                   width: 130px;
                 }

@@ -22,9 +22,6 @@ const HistorySection = ({ currency, incomeItems, expenseItems }) => {
       : setDisplayExpense(false);
   }, []);
 
-  console.log(displayIncome);
-  console.log(displayExpense);
-
   return (
     <>
       <motion.div

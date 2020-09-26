@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/globalstyles.scss";
 import { Route, Switch, useLocation } from "react-router-dom";
 
@@ -23,6 +23,11 @@ function App() {
     JSON.parse(localStorage.getItem("currency")) || null
   );
   const location = useLocation();
+
+  useEffect(() => {
+    let vh = window.innerHeight * 0.1;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }, []);
 
   return (
     <ItemsProvider>

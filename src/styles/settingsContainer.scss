@@ -8,7 +8,7 @@
     width: 100vw;
   }
   .inner-settings {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: #fff;
     border-top-left-radius: 50px;
@@ -19,7 +19,7 @@
     position: absolute;
     bottom: 0;
     @media (max-width: 650px) {
-      height: 90vh;
+      height: 90%;
       padding: 40px 30px;
     }
     .text-box {
@@ -35,7 +35,7 @@
       font-size: calc(1rem + 1vw);
       font-weight: 500;
       @media (max-width: 450px) {
-        font-size: calc(0.5rem + 1vw);
+        font-size: 0.75rem;
         margin-top: 30px;
       }
       .option {
@@ -60,7 +60,8 @@
           appearance: none;
           transition: transform 0.3s ease-in-out;
           @media (max-width: 450px) {
-            padding: 5px 10px;
+            padding: 5px 15px;
+            font-size: 0.7rem;
           }
           &:hover {
             transform: scale(1.05);
@@ -81,7 +82,8 @@
           appearance: none;
           transition: transform 0.3s ease-in-out;
           @media (max-width: 450px) {
-            padding: 5px 10px;
+            padding: 3px;
+            font-size: 0.7rem;
           }
           &:hover {
             transform: scale(1.05);
@@ -121,6 +123,7 @@
         transition: transform 0.3s ease-in-out;
         @media (max-width: 450px) {
           padding: 5px 20px;
+          font-size: 0.7rem;
         }
         &:hover {
           transform: scale(1.05);

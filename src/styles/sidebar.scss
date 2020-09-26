@@ -1,5 +1,6 @@
 .sidebar {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 20vw;
   -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
@@ -69,12 +70,10 @@
             }
             @media (max-width: 650px) {
               border: none;
+              font-size: calc(0.5rem + 0.5vw);
             }
             @media (max-width: 500px) {
               padding: 0 10px;
-            }
-            @media (max-width: 450px) {
-              font-size: calc(0.5rem + 0.5vw);
             }
             &-active {
               border-left-color: $black;

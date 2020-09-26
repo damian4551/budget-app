@@ -144,20 +144,16 @@ const Main = ({
                   <select
                     onChange={updateIncomeExpense}
                     required
-                    defaultValue={"default"}
+                    defaultValue={""}
                   >
-                    <option value="default" disabled>
+                    <option value="" disabled>
                       income/expense
                     </option>
                     <option value="income">Income</option>
                     <option value="expense">Expense</option>
                   </select>
-                  <select
-                    onChange={updateCategory}
-                    required
-                    defaultValue={"default"}
-                  >
-                    <option value="default" disabled>
+                  <select onChange={updateCategory} required defaultValue={""}>
+                    <option value="" disabled>
                       category
                     </option>
                     <option value="food">Food</option>

@@ -109,7 +109,7 @@ const Sidebar = ({ activeDashboard, activeSettings, display }) => {
                     : "navigation-item"
                 }
               >
-                overwiew
+                overview
               </li>
             </Link>
           </ul>
