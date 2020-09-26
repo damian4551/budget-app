@@ -150,7 +150,7 @@ const OverviewContainer = () => {
   ];
 
   return (
-    <div className="main">
+    <div className="main" style={{ minHeight: "100vh" }}>
       <motion.div
         initial={{ y: "100%" }}
         animate={{ y: "0%" }}
