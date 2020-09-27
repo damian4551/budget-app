@@ -152,7 +152,12 @@ const Main = ({
                     <option value="income">Income</option>
                     <option value="expense">Expense</option>
                   </select>
-                  <select onChange={updateCategory} required defaultValue={""}>
+                  <select
+                    onChange={updateCategory}
+                    required
+                    defaultValue={""}
+                    disabled={incomeExpense === "expense" ? false : true}
+                  >
                     <option value="" disabled>
                       category
                     </option>

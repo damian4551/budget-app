@@ -1,7 +1,7 @@
 .main {
   width: 80vw;
   height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 10);
   background-color: $blue;
   position: absolute;
   right: 0;
@@ -148,6 +148,9 @@
                 }
                 @media (max-width: 450px) {
                   width: 130px;
+                }
+                option {
+                  color: $black;
                 }
               }
             }

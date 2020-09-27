@@ -34,7 +34,13 @@ const MenuBox = ({ balance, setBalance, display }) => {
       ? setReavel(true)
       : setReavel(false);
     items.forEach(
-      (item) => item.selected && setSum((sum) => item.amount + sum)
+      (item) =>
+        item.selected &&
+        setSum(
+          (sum) =>
+            Math.round((parseFloat(item.amount + sum) + Number.EPSILON) * 100) /
+            100
+        )
     );
   }, [items]);
 

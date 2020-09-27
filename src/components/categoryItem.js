@@ -1,11 +1,6 @@
 import React from "react";
 
-const CategoryItem = ({ category, expenses, allExpenses }) => {
-  let currentCurrency = localStorage.getItem("currency");
-
-  // removing "" from a string
-  currentCurrency = currentCurrency.slice(1, -1);
-
+const CategoryItem = ({ category, expenses, allExpenses, currentCurrency }) => {
   return (
     <div className="category-item">
       <div className="inner-category-item">

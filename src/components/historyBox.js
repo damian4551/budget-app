@@ -32,7 +32,7 @@ const HistoryBox = ({
   return (
     <div
       className="history-box"
-      style={{ opacity: display === false ? "0" : "1" }}
+      style={{ display: display === false ? "none" : "block" }}
     >
       <div className="inner-history-box" style={{ color: color }}>
         <h2 className="box-title">{name}</h2>

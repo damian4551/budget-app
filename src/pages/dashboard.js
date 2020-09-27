@@ -33,6 +33,7 @@ const Dashboard = ({
       Math.round((balance - startBalance + Number.EPSILON) * 100) / 100
     );
   };
+
   return (
     <div className="app">
       <div className="flex">

@@ -20,7 +20,7 @@ const SettingsContainer = ({
   const [inputValue, setInputValue] = useState("");
   const [currencies, setCurrencies] = useState([]);
   const [selectValue, setSelectValue] = useState("");
-  const [exchangeRate, setExchangeRate] = useState();
+  const [exchangeRate, setExchangeRate] = useState(0);
   const URL = "https://api.exchangeratesapi.io/latest";
 
   const convertItems = () => {
@@ -86,7 +86,9 @@ const SettingsContainer = ({
     <div className="main">
       <motion.div
         className="inner-settings"
-        initial={{ y: "100%" }}
+        initial={
+          (window.scrollTo({ top: 0, behavior: "smooth" }), { y: "100%" })
+        }
         animate={{ y: "0%" }}
         exit={{ y: "100%" }}
         transition={{ duration: 1 }}
@@ -123,7 +125,14 @@ const SettingsContainer = ({
         </div>
         <div className="btn-block">
           <Link to="/">
-            <button onClick={changeBalance}>save</button>
+            <button
+              disabled={
+                exchangeRate === undefined && selectValue !== "" ? true : false
+              }
+              onClick={changeBalance}
+            >
+              save
+            </button>
           </Link>
         </div>
       </motion.div>

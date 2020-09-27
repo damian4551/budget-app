@@ -11,6 +11,7 @@ import CategoryItem from "./categoryItem";
 const OverviewContainer = () => {
   const [items] = useContext(ItemsContext);
   const [sumOfExpenses, setSumOfExpenses] = useState(0);
+  const [sumOfIncomes, setSumOfIncomes] = useState(0);
   const [expensesOnFood, setExpensesOnFood] = useState(0);
   const [expensesOnEntertainment, setExpensesOnEntertainment] = useState(0);
   const [expensesOnBills, setExpensesOnBills] = useState(0);
@@ -18,11 +19,24 @@ const OverviewContainer = () => {
   const [expensesOnFashion, setExpensesOnFashion] = useState(0);
   const [expensesOnOther, setExpensesOnOther] = useState(0);
 
+  let currentCurrency = localStorage.getItem("currency");
+
+  // removing "" from a string
+  currentCurrency = currentCurrency.slice(1, -1);
+
   const sumAllExpenses = useCallback(() => {
     items.forEach(
       (item) =>
         item.incomeExpense === "expense" &&
         setSumOfExpenses((sumOfExpenses) => sumOfExpenses + -1 * item.amount)
+    );
+  }, [items]);
+
+  const sumAllIncomes = useCallback(() => {
+    items.forEach(
+      (item) =>
+        item.incomeExpense === "income" &&
+        setSumOfIncomes((sumOfIncomes) => sumOfIncomes + item.amount)
     );
   }, [items]);
 
@@ -88,6 +102,7 @@ const OverviewContainer = () => {
 
   useEffect(() => {
     sumAllExpenses();
+    sumAllIncomes();
     sumOfFoodExpenses();
     sumOfEntertainmentExpenses();
     sumOfBillsExpenses();
@@ -96,6 +111,7 @@ const OverviewContainer = () => {
     sumOfOtherExpenses();
   }, [
     sumAllExpenses,
+    sumAllIncomes,
     sumOfFoodExpenses,
     sumOfEntertainmentExpenses,
     sumOfBillsExpenses,
@@ -150,16 +166,34 @@ const OverviewContainer = () => {
   ];
 
   return (
-    <div className="main" style={{ minHeight: "100vh" }}>
+    <div className="main">
       <motion.div
-        initial={{ y: "100%" }}
+        initial={
+          (window.scrollTo({ top: 0, behavior: "smooth" }), { y: "100%" })
+        }
         animate={{ y: "0%" }}
-        exit={{ y: "100%" }}
+        exit={{ y: "100vh" }}
         transition={{ duration: 1 }}
         className="overview-inner"
       >
         <div className="text-box">
           <p> &gt; overview</p>
+        </div>
+        <div className="info-incomes-expenses">
+          <div className="incomes">
+            <h3>Incomes</h3>
+            <p>
+              +{sumOfIncomes}
+              {currentCurrency}
+            </p>
+          </div>
+          <div className="expenses">
+            <h3>Expenses</h3>
+            <p>
+              -{sumOfExpenses}
+              {currentCurrency}
+            </p>
+          </div>
         </div>
         {categories.map((category) => (
           <CategoryItem
@@ -167,6 +201,7 @@ const OverviewContainer = () => {
             category={category.category}
             expenses={category.expenses}
             allExpenses={sumOfExpenses}
+            currentCurrency={currentCurrency}
           />
         ))}
       </motion.div>
