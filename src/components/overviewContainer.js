@@ -129,7 +129,7 @@ const OverviewContainer = () => {
           : parseFloat(expensesOnFood),
     },
     {
-      category: "entartainment",
+      category: "entertainment",
       expenses:
         parseFloat(expensesOnEntertainment) < 0
           ? -1 * parseFloat(expensesOnEntertainment)

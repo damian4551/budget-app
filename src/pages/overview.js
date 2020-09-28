@@ -7,7 +7,7 @@ import OverviewContainer from "../components/overviewContainer";
 const Overview = () => {
   return (
     <div className="app">
-      <div className="flex">
+      <div className="flex" style={{ height: "100%", minHeight: "100vh" }}>
         <Sidebar
           activeDashboard="false"
           activeSettings="false"
