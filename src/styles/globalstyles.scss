@@ -25,7 +25,8 @@ body {
 .flex {
   display: flex;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 10);
   @media (max-width: 650px) {
     flex-direction: column;
   }
