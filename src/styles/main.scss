@@ -1,7 +1,6 @@
 .main {
   width: 80vw;
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 10);
+  height: calc(100vh - calc(100vh - 100%));
   background-color: $blue;
   position: absolute;
   right: 0;
